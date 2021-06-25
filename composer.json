@@ -1,14 +1,25 @@
 {
     "description": "Collect website feedback from clients and colleagues on your Neos site using Marker.io.",
+    "license": "GPL-3.0",
     "type": "neos-package",
-    "name": "muensmedia/markerio",
+    "name": "muensmedia/neos-markerio",
+    "keywords": [
+        "neos",
+        "neoscms",
+        "flow",
+        "marker.io",
+        "feedback"
+    ],
+    "authors": [
+        {
+            "name": "Malte Müns",
+            "email": "m.muens@muensmedia.de",
+            "homepage": "https://muensmedia.de",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "neos/neos": "^7.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Muensmedia\\Markerio\\": "Classes/"
-        }
     },
     "extra": {
         "neos": {
