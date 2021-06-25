@@ -1,0 +1,18 @@
+{
+    "description": "Collect website feedback from clients and colleagues on your Neos site using Marker.io.",
+    "type": "neos-package",
+    "name": "muensmedia/markerio",
+    "require": {
+        "neos/neos": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Muensmedia\\Markerio\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Muensmedia.Markerio"
+        }
+    }
+}

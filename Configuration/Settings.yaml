@@ -1,0 +1,11 @@
+Muensmedia:
+  Neos:
+    Markerio:
+      destination: '606450c0bc25e5200845587f'
+      displayOnlyForAuthenticatedUsers: true
+
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        Muensmedia.Markerio: true

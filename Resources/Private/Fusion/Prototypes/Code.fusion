@@ -1,0 +1,44 @@
+# A Marker.io integration code object
+#
+prototype(Muensmedia.Markerio:Code) < prototype(Neos.Fusion:Component) {
+    settings = ${Configuration.setting('Muensmedia.Neos.Markerio')}
+    destination = ${this.settings.destination}
+    @context.onlyAuthenticatedUsers = ${this.settings.displayOnlyForAuthenticatedUsers}
+
+    displayCode = Neos.Fusion:Case {
+        // hide Marker.io if the user is not authentificated but he should be
+        onlyAuthenticatedUsers {
+            condition = ${onlyAuthenticatedUsers && !Security.isAuthenticated()}
+            renderer = false
+        }
+        default {
+            condition = true
+            renderer = true
+        }
+    }
+
+    // Show tracking code only in live workspace and if all necessary parameters are set
+    @if {
+        inLiveWorkspace = ${node.context.workspaceName == 'live'}
+        destinationIsSet = ${this.destination}
+        onlyAuthenticatedUsers = ${this.displayCode}
+    }
+
+    renderer = afx`
+    <script>{"
+        window.markerConfig = {
+            destination: '" + props.destination + "',
+        };
+    "}</script>
+    <script>{"
+        !function (e, r, t) {
+            if (e.__Marker) return;
+            e.__Marker = {};
+            var n = r.createElement(\"script\");
+            n.async = 1, n.src = \"https://edge.marker.io/latest/shim.js\";
+            var s = r.getElementsByTagName(\"script\")[0];
+            s.parentNode.insertBefore(n, s)
+        }(window, document);
+    "}</script>
+    `
+}

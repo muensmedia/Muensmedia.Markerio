@@ -1,0 +1,5 @@
+prototype(Neos.Neos:Page) {
+    markerIoTag = Muensmedia.Markerio:Code {
+        @position = 'before closingBodyTag 100'
+    }
+}
