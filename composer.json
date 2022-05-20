@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "neos/neos": "^7.0"
+        "neos/neos": "^7.0||^8.0"
     },
     "extra": {
         "neos": {
